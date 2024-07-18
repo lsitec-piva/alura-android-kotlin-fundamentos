@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("org.jetbrains.kotlin.plugin.parcelize")
+    kotlin("kapt")
 }
 
 android {
@@ -71,4 +72,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation("io.coil-kt:coil:2.6.0")
+
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
 }
