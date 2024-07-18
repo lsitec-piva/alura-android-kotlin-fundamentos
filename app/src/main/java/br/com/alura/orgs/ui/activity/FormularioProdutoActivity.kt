@@ -2,7 +2,7 @@ package br.com.alura.orgs.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import br.com.alura.orgs.dao.ProdutoDAO
+import br.com.alura.orgs.database.AppDatabase
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding
 import br.com.alura.orgs.extensions.tentaCarregarImagem
 import br.com.alura.orgs.model.Produto
@@ -32,10 +32,11 @@ class FormularioProdutoActivity : AppCompatActivity() {
 
     private fun configuraBotaoSalvar() {
         val botaoSalvar = binding.activityFormularioProdutoBotaoSalvar
-        val dao = ProdutoDAO()
+        val db = AppDatabase.instancia(this)
+        val produtoDao = db.produtoDao()
         botaoSalvar.setOnClickListener {
             val novoProduto = criaProduto()
-            dao.adiciona(novoProduto)
+            produtoDao.salva(novoProduto)
             finish()
         }
     }
@@ -53,7 +54,12 @@ class FormularioProdutoActivity : AppCompatActivity() {
             BigDecimal(valorEmTexto)
         }
 
-        return Produto(nome, descricao, valor, url)
+        return Produto(
+            nome = nome,
+            descricao = descricao,
+            valor = valor,
+            imagem = url
+        )
     }
 
 }
