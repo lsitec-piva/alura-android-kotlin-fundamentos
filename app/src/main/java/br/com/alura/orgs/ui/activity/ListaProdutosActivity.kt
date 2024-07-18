@@ -39,6 +39,12 @@ class ListaProdutosActivity : AppCompatActivity() {
     private fun vaiParaFormularioProduto() {
         val intent = Intent(this, FormularioProdutoActivity::class.java)
         startActivity(intent)
+        adapter.quandoClicaEmEditar = {
+
+        }
+        adapter.quandoClicaEmRemover = {
+
+        }
     }
 
     private fun configuraRecyclerView() {
