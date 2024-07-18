@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_lista_produtos_ordenar"
+        android:icon="@drawable/ic_action_ordenar"
+        android:title="Ordenar"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_lista_produtos_ordenar_valor_desc"
+                android:title="Valor decrescente" />
+            <item
+                android:id="@+id/menu_lista_produtos_ordenar_valor_asc"
+                android:title="Valor crescente" />
+            <item
+                android:id="@+id/menu_lista_produtos_ordenar_sem_ordem"
+                android:title="Ordem padrão" />
+        </menu>
+    </item>
+</menu>

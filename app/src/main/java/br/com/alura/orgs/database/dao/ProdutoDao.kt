@@ -23,4 +23,10 @@ interface ProdutoDao {
     @Query("SELECT * FROM Produto WHERE id = :id")
     fun buscaPorId(id: Long): Produto?
 
+    @Query("SELECT * FROM Produto ORDER BY valor ASC")
+    fun buscaTodosOrdenadorPorValorAsc(): List<Produto>
+
+    @Query("SELECT * FROM Produto ORDER BY valor DESC")
+    fun buscaTodosOrdenadorPorValorDesc(): List<Produto>
+
 }
